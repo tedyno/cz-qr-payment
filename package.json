@@ -1,18 +1,32 @@
 {
-  "name": "cz-qr-payment",
+  "name": "@tedyno/cz-qr-payment",
   "type": "module",
-  "repository": "https://github.com/tedyno/cz-qr-payment",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tedyno/cz-qr-payment.git"
+  },
   "author": "tedyno <vanicekdave@gmail.com>",
   "version": "0.1.0",
   "description": "A simple CZ payment QR Code generator based on qrcode-svg & cdigit",
   "license": "MIT",
   "main": "src/qrcode.js",
   "scripts": {
-    "minify": "node_modules/.bin/uglifyjs --compress --mangle -- src/qrsvgjs.js > dist/qrsvgjs.min.js"
+    "minify": "uglifyjs --compress --mangle -- src/qrsvgjs.js > dist/qrsvgjs.min.js"
   },
   "dependencies": {
     "cdigit": "^3.1.1",
     "qrcode-svg": "^1.1.0",
     "uglify-js": "^3.15.0"
-  }
+  },
+  "bugs": {
+    "url": "https://github.com/tedyno/cz-qr-payment/issues"
+  },
+  "homepage": "https://github.com/tedyno/cz-qr-payment#readme",
+  "devDependencies": {},
+  "keywords": [
+    "qr",
+    "payment",
+    "czech",
+    "cz"
+  ]
 }
