@@ -9,9 +9,10 @@
   "version": "0.1.0",
   "description": "A simple CZ payment QR Code generator based on qrcode-svg & cdigit",
   "license": "MIT",
-  "main": "src/qrcode.js",
+  "main": "dist/QRPaymentGenerator.js",
   "scripts": {
-    "minify": "uglifyjs --compress --mangle -- src/qrsvgjs.js > dist/qrsvgjs.min.js"
+    "minify": "uglifyjs --compress --mangle -- src/qrsvgjs.js > dist/qrsvgjs.min.js",
+    "build": "rm -fr dist/* && tsc"
   },
   "dependencies": {
     "cdigit": "^3.1.1",
@@ -22,7 +23,15 @@
     "url": "https://github.com/tedyno/cz-qr-payment/issues"
   },
   "homepage": "https://github.com/tedyno/cz-qr-payment#readme",
-  "devDependencies": {},
+  "devDependencies": {
+    "@types/qrcode-svg": "^1.1.1",
+    "@typescript-eslint/eslint-plugin": "^5.22.0",
+    "@typescript-eslint/parser": "^5.22.0",
+    "eslint": "^8.14.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.26.0",
+    "tsc": "^2.0.4"
+  },
   "keywords": [
     "qr",
     "payment",
