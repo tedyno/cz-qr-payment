@@ -68,7 +68,8 @@ export const PaymentSchema = z
       .number()
       .min(1, 'Minimum value is 1')
       .transform((amount: number) => amount.toFixed(2))
-      .refine((val: string) => val.length <= 10, 'Invalid amount'),
+      .refine((val: string) => val.length <= 10, 'Invalid amount')
+      .nullable(),
   })
   .transform(
     (data): Payment => ({

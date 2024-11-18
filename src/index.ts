@@ -18,7 +18,7 @@ export interface Account {
  * @property {string} currency - The currency type (limited to 'CZK').
  */
 export interface Payment {
-  readonly amount: string;
+  readonly amount: string | null;
   readonly currency: string;
 }
 

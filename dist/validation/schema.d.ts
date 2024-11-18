@@ -24,13 +24,13 @@ export declare const PaymentOptionsSchema: z.ZodObject<{
     URL?: string | undefined;
 }>;
 export declare const PaymentSchema: z.ZodEffects<z.ZodObject<{
-    amount: z.ZodEffects<z.ZodEffects<z.ZodNumber, string, number>, string, number>;
+    amount: z.ZodNullable<z.ZodEffects<z.ZodEffects<z.ZodNumber, string, number>, string, number>>;
 }, "strip", z.ZodTypeAny, {
-    amount: string;
+    amount: string | null;
 }, {
-    amount: number;
+    amount: number | null;
 }>, Payment, {
-    amount: number;
+    amount: number | null;
 }>;
 export declare const AccountSchema: z.ZodEffects<z.ZodObject<{
     prefix: z.ZodString;
