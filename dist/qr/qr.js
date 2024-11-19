@@ -8,9 +8,11 @@ const qrcode_generator_1 = __importDefault(require("qrcode-generator"));
 const generateQrContent = (iban, payment, options) => {
     const content = new Map([
         ['ACC', iban],
-        ['AM', payment.amount],
         ['CC', payment.currency],
     ]);
+    if (payment.amount) {
+        content.set('AM', payment.amount);
+    }
     if (options.message) {
         content.set('MSG', options.message);
     }
