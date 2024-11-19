@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased] - yyyy-mm-dd
 
+### Added
+
+- types for inputs
+
 ## [1.1.0] - 2024-11-19
 
 ### Added

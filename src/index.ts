@@ -1,3 +1,7 @@
+export type AmountInput = number | null;
+export type BankAccountInput = Account | string;
+export type PaymentOptionsInput = PaymentOptions;
+
 /**
  * Represents an account with specific details.
  * @interface Account

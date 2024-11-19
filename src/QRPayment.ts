@@ -5,7 +5,14 @@ import {
   PaymentSchema,
 } from './validation/schema';
 import { createQrCode, generateQrContent } from './qr/qr';
-import { Account, PaymentOptions, Payment } from './index';
+import {
+  Account,
+  PaymentOptions,
+  Payment,
+  AmountInput,
+  BankAccountInput,
+  PaymentOptionsInput,
+} from './index';
 import { getIban } from './iban/iban';
 
 export class QRPayment {
@@ -14,9 +21,9 @@ export class QRPayment {
   public readonly payment: Payment;
 
   constructor(
-    amount: number | null,
-    bankAccount: Account | string,
-    paymentOptions: Partial<PaymentOptions> = {},
+    amount: AmountInput,
+    bankAccount: BankAccountInput,
+    paymentOptions: PaymentOptionsInput = {},
   ) {
     if (typeof bankAccount === 'string') {
       this.account = BankAccountStringSchema.parse(bankAccount);
@@ -38,9 +45,9 @@ export class QRPayment {
 }
 
 export function createQrPaymentSvg(
-  amount: number,
-  bankAccount: Account | string,
-  paymentOptions: Partial<PaymentOptions> = {},
+  amount: AmountInput,
+  bankAccount: BankAccountInput,
+  paymentOptions: PaymentOptionsInput = {},
 ): string {
   return new QRPayment(amount, bankAccount, paymentOptions).getSvg();
 }
