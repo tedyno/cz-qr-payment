@@ -17,7 +17,7 @@ describe('qr', () => {
       URL: 'www.google.com',
     };
     expect(generateQrContent(iban, payment, paymentOptions)).toEqual(
-      'SPD*1.0*ACC:CZ2130300000001263035066*AM:199.90*CC:CZK*MSG:Poznamka*X-VS:123*X-SS:321*X-KS:456*X-URL:www.google.com*DT:20230408',
+      'SPD*1.0*ACC:CZ2130300000001263035066*CC:CZK*AM:199.90*MSG:Poznamka*X-VS:123*X-SS:321*X-KS:456*X-URL:www.google.com*DT:20230408',
     );
   });
 });

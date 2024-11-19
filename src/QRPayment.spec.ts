@@ -42,6 +42,22 @@ describe('QRPayment', () => {
         VS: '126303',
       });
     });
+
+    it('without amount', () => {
+      const qrPayment = new QRPayment(null, '19-2000145399/0800', {
+        VS: '126303',
+        message: 'Payment for order #126303',
+      });
+
+      expect(qrPayment.payment.amount).toEqual(null);
+      expect(qrPayment.account.prefix).toEqual('000019');
+      expect(qrPayment.account.number).toEqual('2000145399');
+      expect(qrPayment.account.bankCode).toEqual('0800');
+      expect(qrPayment.paymentOptions).toMatchObject({
+        message: 'Payment for order #126303',
+        VS: '126303',
+      });
+    });
   });
 
   describe('generates content for QR code', () => {
@@ -60,7 +76,7 @@ describe('QRPayment', () => {
       );
 
       expect(qrPayment.getQrContent()).toEqual(
-        'SPD*1.0*ACC:CZ6508000000192000145399*AM:156.90*CC:CZK*MSG:Payment for order #126303*X-VS:126303',
+        'SPD*1.0*ACC:CZ6508000000192000145399*CC:CZK*AM:156.90*MSG:Payment for order #126303*X-VS:126303',
       );
     });
 
@@ -71,7 +87,18 @@ describe('QRPayment', () => {
       });
 
       expect(qrPayment.getQrContent()).toEqual(
-        'SPD*1.0*ACC:CZ6508000000192000145399*AM:156.90*CC:CZK*MSG:Payment for order #126303*X-VS:126303',
+        'SPD*1.0*ACC:CZ6508000000192000145399*CC:CZK*AM:156.90*MSG:Payment for order #126303*X-VS:126303',
+      );
+    });
+
+    it('without amount', () => {
+      const qrPayment = new QRPayment(null, '19-2000145399/0800', {
+        VS: '126303',
+        message: 'Payment for order #126303',
+      });
+
+      expect(qrPayment.getQrContent()).toEqual(
+        'SPD*1.0*ACC:CZ6508000000192000145399*CC:CZK*MSG:Payment for order #126303*X-VS:126303',
       );
     });
   });

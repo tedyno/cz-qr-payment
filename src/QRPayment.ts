@@ -14,7 +14,7 @@ export class QRPayment {
   public readonly payment: Payment;
 
   constructor(
-    amount: number,
+    amount: number | null,
     bankAccount: Account | string,
     paymentOptions: Partial<PaymentOptions> = {},
   ) {
