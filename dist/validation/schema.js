@@ -38,7 +38,7 @@ exports.PaymentSchema = zod_1.z
     .object({
     amount: zod_1.z
         .number()
-        .min(1, 'Minimum value is 1')
+        .min(0, 'Minimum value is 0')
         .transform((amount) => amount.toFixed(2))
         .refine((val) => val.length <= 10, 'Invalid amount')
         .nullable(),

@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ### Added
 
 - support for nullish amount
+- support for zero value
 - changelog
 
 ## [1.0.1] - 2023-11-18
